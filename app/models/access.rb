@@ -13,7 +13,7 @@ class Access < ApplicationRecord
   belongs_to :role
   belongs_to :permission
 
-  scope :with_permission, lambda { |name:, action:, is_allowed:|
+    scope :with_permission, lambda { |name:, action:, is_allowed:|
     joins(:permission).where(permissions: { name:, action: }).where(is_allowed:)
   }
 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :roles
   resources :posts
+  resources :permissions
   devise_for :users
 
   devise_scope :user do

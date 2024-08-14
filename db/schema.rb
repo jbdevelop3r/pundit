@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_14_051814) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_14_080300) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accesses", force: :cascade do |t|
-    t.boolean "is_allowed"
+    t.boolean "is_allowed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "permission_id", null: false
     t.bigint "role_id", null: false
+    t.bigint "permission_id", null: false
     t.index ["permission_id"], name: "index_accesses_on_permission_id"
     t.index ["role_id"], name: "index_accesses_on_role_id"
   end
